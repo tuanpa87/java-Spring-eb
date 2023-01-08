@@ -1,25 +1,16 @@
 package com.example.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component(value="personBean")
 public class Person {
 
     private String name="Lucy";
     private final Vehicle vehicle;
 
-   /* Step 1*/
-/*    @Autowired
-    public Person(Vehicle vehicle1){
-        System.out.println("Person bean created by Spring");
-        this.vehicle = vehicle1;
-    }*/
-
     @Autowired
-    public Person(@Qualifier("vehicle2") Vehicle vehicle){
-        System.out.println("Person bean created by Spring");
+    public Person(Vehicle vehicle){
         this.vehicle = vehicle;
     }
 
