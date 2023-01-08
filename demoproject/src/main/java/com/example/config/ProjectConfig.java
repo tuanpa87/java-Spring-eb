@@ -18,9 +18,7 @@ configuration class.
 * */
 @Configuration
 @ComponentScan(basePackages = {"com.example.implementation",
-        "com.example.services"})
-@ComponentScan(basePackageClasses = {com.example.beans.Vehicle.class,
-        com.example.beans.Person.class})
+        "com.example.services", "com.example.aspects"})
 public class ProjectConfig {
 
 }
