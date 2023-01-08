@@ -1,7 +1,7 @@
 package com.example.beans;
 
 import org.springframework.stereotype.Component;
-@Component
+
 public class Vehicle {
     public Vehicle(){
         System.out.println("Vehicle bean created by Spring");

@@ -1,26 +1,27 @@
 package com.example.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
 
     private String name="Lucy";
+    private final Vehicle vehicle;
+
+   /* Step 1*/
+/*    @Autowired
+    public Person(Vehicle vehicle1){
+        System.out.println("Person bean created by Spring");
+        this.vehicle = vehicle1;
+    }*/
 
     @Autowired
-    public Person(Vehicle vehicle){
+    public Person(@Qualifier("vehicle2") Vehicle vehicle){
         System.out.println("Person bean created by Spring");
         this.vehicle = vehicle;
     }
-
-    /*
-    The @Autowired annotation marks on a field, constructor, Setter method
-    is used to auto-wire the beans that is ‘injecting beans'(Objects) at runtime
-    by Spring Dependency Injection mechanism
-    * */
-    /*@Autowired*/
-    private Vehicle vehicle;
 
     public String getName() {
         return name;
@@ -32,11 +33,6 @@ public class Person {
 
     public Vehicle getVehicle() {
         return vehicle;
-    }
-
-    /*@Autowired*/
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
     }
 
 }
