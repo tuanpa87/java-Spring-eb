@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 @Aspect
 @Component
+@Order(2)
 public class LoggerAspect {
 
     private Logger logger = Logger.getLogger(LoggerAspect.class.getName());
