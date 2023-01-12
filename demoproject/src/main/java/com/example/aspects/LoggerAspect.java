@@ -30,4 +30,16 @@ public class LoggerAspect {
         logger.info("Time took to execute the method : "+timeElapsed);
         logger.info(joinPoint.getSignature().toString() + " method execution end");
     }
+
+    @AfterThrowing(value = "execution(* com.example.services.*.*(..))",throwing = "ex")
+    public void logException(JoinPoint joinPoint, Exception ex) {
+        logger.log(Level.SEVERE,joinPoint.getSignature()+ " An exception thrown with the help of" +
+                " @AfterThrowing which happened due to : "+ex.getMessage());
+    }
+
+    @AfterReturning(value = "execution(* com.example.services.*.*(..))",returning = "retVal")
+    public void logStatus(JoinPoint joinPoint,Object retVal) {
+        logger.log(Level.INFO,joinPoint.getSignature()+ " Method successfully processed with the status " +
+                retVal.toString());
+    }
 }
